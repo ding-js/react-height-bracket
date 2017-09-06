@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "sourceMap": false,
+    "jsx": "react",
+    "moduleResolution": "node"
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "lib",
+    "dist"
+  ]
+}
