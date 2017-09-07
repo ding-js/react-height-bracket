@@ -1,0 +1,23 @@
+.container {
+    box-sizing: border-box;
+    float: left;
+    width: 50%;
+    padding: 0 20px;
+}
+
+.filler {
+    margin-bottom: 10px;
+    border: 1px solid #eee;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+}
+
+.demo {
+    border: 1px solid #ED7D7D;
+    padding: 0 20px;
+}
+
+footer {
+    padding: 10px;
+    text-align: center;
+}
