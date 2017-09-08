@@ -18,16 +18,16 @@ class Example extends React.Component<ExampleProps, ExampleState>{
       <div style={{ overflow: 'hidden' }}>
         <div className="container">
           {createFiller(3)}
-          <ReactHeightBracket className="demo" scroll siblingsHeight={53 * 2}>
-            {createFiller(100, 'overflow')}
+          <ReactHeightBracket className="demo" scroll siblingsHeight={41}>
+            {createFiller(100, 'set height & overflow')}
           </ReactHeightBracket>
-          {createFiller(2)}
+          <footer>Demo1 Footer</footer>
         </div>
         <div className="container">
           {createFiller(2)}
           <div style={{ height: 500 }} className="demo" id="demo2">
             <ReactHeightBracket container="#demo2" siblingsHeight={41}>
-              Set min-height
+              set min-height
             </ReactHeightBracket>
             <footer>Demo2 Footer</footer>
           </div>

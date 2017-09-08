@@ -1,4 +1,6 @@
 import * as React from 'react';
+import assign from 'object-assign';
+
 
 interface Props {
   scroll?: boolean;
@@ -37,8 +39,9 @@ class ReactHeightBracket extends React.Component<Props, State> {
     if (parent) {
       const componentStyle = window.getComputedStyle(parent);
       return (
-        parseInt(componentStyle['margin-bottom']) +
-        parseInt(componentStyle['padding-bottom']) +
+        ['margin-bottom', 'padding-bottom', 'border-bottom'].reduce(
+          (sum, prop) => sum + parseFloat(componentStyle[prop]), 0
+        ) +
         this.getParentsMarginPadding(parent, target)
       );
     } else {
@@ -61,14 +64,17 @@ class ReactHeightBracket extends React.Component<Props, State> {
       if (!dom) {
         return;
       }
+
       height = dom.offsetHeight;
       target = dom;
+
     } else if (!container || container === window) {
       height = window.innerHeight;
       target = document.body;
     } else {
       return;
     }
+
 
     height = height - (element.offsetTop - target.offsetTop) - this.getParentsMarginPadding(element, target) - (siblingsHeight || 0);
 
@@ -95,23 +101,25 @@ class ReactHeightBracket extends React.Component<Props, State> {
       return propsMap;
     }, {} as any);
 
-    const style: React.CSSProperties = {};
+    const style: React.CSSProperties = {
+      boxSizing: 'border-box'
+    };
 
     if (scroll) {
-      Object.assign(style, {
+      assign(style, {
         overflow: 'auto',
         height: this.state.height
       });
     } else {
-      Object.assign(style, {
+      assign(style, {
         'min-height': this.state.height
       });
     }
 
     if (props.hasOwnProperty('style')) {
-      Object.assign(props.style, style);
+      assign(props.style, style);
     } else {
-      Object.assign(props, { style });
+      assign(props, { style });
     }
 
     return (
