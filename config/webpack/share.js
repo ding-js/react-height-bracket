@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     entry: './example/index.tsx',
     output: {
-        path: path.resolve('example'),
+        path: path.resolve('example/build'),
         filename: 'index.js'
     },
     module: {
@@ -16,7 +16,6 @@ module.exports = {
                 use: [{
                     loader: 'awesome-typescript-loader',
                     options: {
-                        useBabel: true,
                         useCache: true,
                         cacheDirectory: '.cache'
                     }
@@ -38,7 +37,6 @@ module.exports = {
     resolve: {
         extensions: ['.tsx', '.ts', '.jsx', '.js']
     },
-    devtool: 'source-map',
     target: 'web',
     plugins: [
         new HtmlWebpackPlugin({

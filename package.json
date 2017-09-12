@@ -2,11 +2,17 @@
   "name": "react-height-bracket",
   "version": "1.0.0",
   "main": "lib/index.js",
+  "module": "es/index.js",
   "repository": "https://github.com/ding-js/react-height-bracket.git",
   "author": "Yuchao Ding <ding-js@outlook.com>",
   "license": "MIT",
+  "files": [
+    "lib",
+    "es"
+  ],
   "scripts": {
-    "dev": "webpack-dev-server --config ./config/webpack/dev.js",
+    "demo:dev": "webpack-dev-server --config ./config/webpack/dev.js",
+    "demo:build": "webpack --config ./config/webpack/prod.js",
     "tsc:es": "tsc --outDir es",
     "tsc:lib": "tsc --outDir lib --target es5",
     "clean": "rimraf lib es",
