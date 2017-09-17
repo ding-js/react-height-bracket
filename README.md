@@ -1,5 +1,5 @@
 ## Usage
-```js
+```jsx
 import ReactHeightBracket from 'react-height-bracket';
 
 ReactDOM.render(
